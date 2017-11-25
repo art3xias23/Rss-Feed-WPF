@@ -26,6 +26,7 @@ namespace RssFeedWpf
         public MainWindow()
         {
             InitializeComponent();
+            grid2_Topic.Visibility = Visibility.Hidden;
         }
 
         private void btnGo_Click(object sender, RoutedEventArgs e)
@@ -35,6 +36,20 @@ namespace RssFeedWpf
                 SyndicationFeed feed = SyndicationFeed.Load(reader);
                 lstFeedItems.ItemsSource = feed.Items;
             }
+        }
+
+        private void btnLink_Click(object sender, RoutedEventArgs e)
+        {
+            grid2_Topic.Visibility = Visibility.Hidden;
+            btnGo.Visibility = Visibility.Visible;
+            txtUrl.Visibility = Visibility.Visible;
+        }
+
+        private void btnTopic_Click(object sender, RoutedEventArgs e)
+        {
+grid2_Topic.Visibility = Visibility.Visible;
+            btnGo.Visibility = Visibility.Hidden;
+            txtUrl.Visibility = Visibility.Hidden;
         }
     }
 }

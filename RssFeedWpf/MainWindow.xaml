@@ -9,9 +9,24 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <DockPanel Grid.Row="0">
+        <Grid Grid.Row="0" Height="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0"
+                    Name="btn_LinkFeed"
+                    Content="Link Feed"
+                    Click="btnLink_Click"/>
+            <Button Grid.Column="1"
+                    Content="Topic Feed"
+                    Name="btn_TopicFeed"
+                    Click="btnTopic_Click"/>
+        </Grid>
+        <DockPanel Grid.Row="1">
             <Button Name="btnGo"
                     DockPanel.Dock="Right"
                     Content="Go"
@@ -19,7 +34,13 @@
                     Width="50"/>
             <TextBox Name="txtUrl"/>
         </DockPanel>
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1"
+              Name="grid2_Topic">
+            <Button Name="btn_Politics" Width="150" HorizontalAlignment="Left" Content="Politics"/>
+            <Button Name="btn_Sports" Width="150" HorizontalAlignment=" Center" Content="Sports"/>
+            <Button Name="btn_Literature" Width="150" HorizontalAlignment="Right" Content="Literature"/>
+        </Grid>
+        <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="250"/>
                 <ColumnDefinition Width="Auto"/>
