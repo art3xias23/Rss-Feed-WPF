@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml;
+using System.ServiceModel;
+using System.ServiceModel.Syndication;
 
 namespace RssFeedWpf
 {
@@ -23,6 +26,15 @@ namespace RssFeedWpf
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void btnGo_Click(object sender, RoutedEventArgs e)
+        {
+            using (XmlReader reader = XmlReader.Create(txtUrl.Text))
+            {
+                SyndicationFeed feed = SyndicationFeed.Load(reader);
+                lstFeedItems.ItemsSource = feed.Items;
+            }
         }
     }
 }
