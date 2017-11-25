@@ -7,6 +7,37 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Row="0">
+            <Button Name="btnGo"
+                    DockPanel.Dock="Right"
+                    Content="Go"
+                    Click="btnGo_Click"
+                    Width="50"/>
+            <TextBox Name="txtUrl"/>
+        </DockPanel>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <ListBox Name="lstFeedItems"
+                     Grid.Column="0" 
+                     DisplayMemberPath="Title.Text"/>
+            <GridSplitter Grid.Column="1"
+                          VerticalAlignment="Stretch"
+                          Width="3"
+                          ResizeBehavior="PreviousAndNext"
+                          ResizeDirection="Columns"/>
+            <Frame Name="frmContents"
+                         Grid.Column="2"
+                         NavigationUIVisibility="Visible">
+                
+            </Frame>
+        </Grid>
     </Grid>
 </Window>
